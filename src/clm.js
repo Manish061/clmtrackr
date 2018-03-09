@@ -322,6 +322,11 @@ var clm = {
 			cancelAnimationFrame(runnerTimeout);
 		}
 
+		this.getBoundary = function(element, box) {
+			faceDetector.init(element);
+			return faceDetector.getBoundaryBox(box);
+		}
+
 		/*
 		 *  element : canvas or video element
 		 *  TODO: should be able to take img element as well

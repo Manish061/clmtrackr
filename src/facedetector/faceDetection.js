@@ -84,6 +84,16 @@ var faceDetection = function(pdmModel, params) {
 		});
 	}
 
+	this.getBoundaryBox = function(box) {
+        return new Promise(function(resolve, reject) {
+            if (box) {
+                resolve({ x: box[0], y: box[1], width: box[2], height: box[3] });
+            } else {
+                resolve(jf.findFace());
+            }
+        });
+    }
+
 	var getFinegrainedPosition = function(candidate) {
 		var translateX, translateY, scaling, rotation;
 		var x = candidate.x;
